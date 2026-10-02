@@ -1,19 +1,48 @@
 [gd_scene format=3 uid="uid://cugw6hb5txr0l"]
 
-[ext_resource type="Texture2D" uid="uid://h6xkmgv57vp4" path="res://icon.svg" id="1_igr15"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f0ot8"]
+size = Vector2(82.005875, 120)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_igr15"]
+size = Vector2(60, 6)
 
 [node name="Stage" type="Node2D" unique_id=1377701709]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1598401613]
+[node name="Ground" type="StaticBody2D" parent="." unique_id=1392233870]
 position = Vector2(210.99998, 233)
 scale = Vector2(3.39, 0.1)
-texture = ExtResource("1_igr15")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D" unique_id=1392233870]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1534266909]
+position = Vector2(0.29499054, -410)
+scale = Vector2(1.0000002, 1)
+shape = SubResource("RectangleShape2D_f0ot8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D" unique_id=963488525]
-scale = Vector2(6.42, 5.34)
-shape = SubResource("RectangleShape2D_g4v7s")
-debug_color = Color(0.86879, 0.0005298233, 0.8546959, 0.41960785)
+[node name="Polygon2D" type="Polygon2D" parent="Ground" unique_id=1290014321]
+polygon = PackedVector2Array(-40.707962, -470, -40.707962, -350, 41.29794, -350, 41.29794, -470)
+
+[node name="Platform1" type="StaticBody2D" parent="." unique_id=1194777302]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1" unique_id=19647699]
+position = Vector2(134, 137)
+shape = SubResource("RectangleShape2D_igr15")
+
+[node name="Polygon2D" type="Polygon2D" parent="Platform1" unique_id=1479549123]
+polygon = PackedVector2Array(104, 134, 104, 140, 164, 140, 164, 134)
+
+[node name="Platform2" type="StaticBody2D" parent="." unique_id=1549997487]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" unique_id=1246625004]
+position = Vector2(291, 137)
+shape = SubResource("RectangleShape2D_igr15")
+
+[node name="Polygon2D" type="Polygon2D" parent="Platform2" unique_id=1121431999]
+polygon = PackedVector2Array(261, 134, 261, 140, 321, 140, 321, 134)
+
+[node name="Platform3" type="StaticBody2D" parent="." unique_id=58686894]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3" unique_id=1669096712]
+position = Vector2(211, 97)
+shape = SubResource("RectangleShape2D_igr15")
+
+[node name="Polygon2D" type="Polygon2D" parent="Platform3" unique_id=105052652]
+polygon = PackedVector2Array(181, 94, 181, 100, 241, 100, 241, 94)
