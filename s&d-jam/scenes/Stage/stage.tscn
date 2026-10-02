@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://cugw6hb5txr0l"]
 
+[ext_resource type="PackedScene" uid="uid://dlqfd0pjd333j" path="res://enemies/red_square/red_square.tscn" id="1_igr15"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f0ot8"]
 size = Vector2(82.005875, 120)
 
@@ -46,3 +48,15 @@ shape = SubResource("RectangleShape2D_igr15")
 
 [node name="Polygon2D" type="Polygon2D" parent="Platform3" unique_id=105052652]
 polygon = PackedVector2Array(181, 94, 181, 100, 241, 100, 241, 94)
+
+[node name="RedSquare" parent="." unique_id=1719181859 node_paths=PackedStringArray("patrol_points") instance=ExtResource("1_igr15")]
+position = Vector2(134, 127)
+patrol_points = NodePath("PatrolPoints")
+
+[node name="PatrolPoints" type="Node2D" parent="RedSquare" unique_id=1074799504]
+
+[node name="Point1" type="Marker2D" parent="RedSquare/PatrolPoints" unique_id=1171357299]
+position = Vector2(-47, 17)
+
+[node name="Point2" type="Marker2D" parent="RedSquare/PatrolPoints" unique_id=1224287906]
+position = Vector2(47, 17)
