@@ -20,6 +20,7 @@ mass = 0.2
 physics_material_override = SubResource("PhysicsMaterial_pw2kr")
 inertia = 1.31
 can_sleep = false
+multiply = 1.0
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=1392233870]
 position = Vector2(210.99998, 233)
