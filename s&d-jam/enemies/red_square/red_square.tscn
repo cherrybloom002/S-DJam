@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dlqfd0pjd333j"]
+
+[ext_resource type="Script" uid="uid://crg3w5ii80qa7" path="res://enemies/red_square/red_square.gd" id="1_d7noc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5glc"]
+
+[node name="RedSquare" type="CharacterBody2D" unique_id=1719181859]
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_d7noc")
+wait_time = 0.5
+
+[node name="Sprite2D" type="Polygon2D" parent="." unique_id=676049059]
+color = Color(0.6501247, 0.08795845, 0.025893526, 1)
+polygon = PackedVector2Array(-10, -20, -10, 0, 10, 0, 10, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1732936615]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_n5glc")
+debug_color = Color(0.82821393, 0.15725026, 0.21445298, 0.41960785)
+
+[node name="Timer" type="Timer" parent="." unique_id=1012172875]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
