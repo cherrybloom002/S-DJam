@@ -4,6 +4,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5glc"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d7noc"]
+size = Vector2(23, 23)
+
 [node name="RedSquare" type="CharacterBody2D" unique_id=1719181859]
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_d7noc")
@@ -21,4 +24,11 @@ debug_color = Color(0.82821393, 0.15725026, 0.21445298, 0.41960785)
 [node name="Timer" type="Timer" parent="." unique_id=1012172875]
 autostart = true
 
+[node name="Hurtbox" type="Area2D" parent="." unique_id=302106176]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1235110927]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_d7noc")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
