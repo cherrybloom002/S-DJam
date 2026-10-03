@@ -25,6 +25,8 @@ debug_color = Color(0.82821393, 0.15725026, 0.21445298, 0.41960785)
 autostart = true
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=302106176]
+collision_layer = 4
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1235110927]
 position = Vector2(0, -10)

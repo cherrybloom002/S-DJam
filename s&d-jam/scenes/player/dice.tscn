@@ -10,8 +10,9 @@
 size = Vector2(24, 24)
 
 [node name="Dice" type="RigidBody2D" unique_id=373100524]
+collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_75ctp")
-gravity_scale = 3.0
+gravity_scale = 8.0
 script = ExtResource("2_e0qrn")
 multiply = 2.0
 
