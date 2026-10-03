@@ -12,15 +12,15 @@ config_version=5
 
 config/name="S&DJam"
 run/main_scene="uid://cugw6hb5txr0l"
-config/features=PackedStringArray("4.7", "GL Compatibility")
+config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
 
 window/size/viewport_width=427
 window/size/viewport_height=240
-window/size/window_width_override=960
-window/size/window_height_override=540
+window/size/window_width_override=1708
+window/size/window_height_override=960
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
