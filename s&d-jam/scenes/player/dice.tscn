@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://h0bmbcil5sb6"]
+
+[ext_resource type="PackedScene" uid="uid://fuccnw48otla" path="res://scenes/player/vector_creator.tscn" id="1_jj6bm"]
+[ext_resource type="Texture2D" uid="uid://11mhnsaqhprx" path="res://assets/sprites/CuteDice - AssetPack_v1.0/PixelDice_White.png" id="1_xa3dw"]
+[ext_resource type="Script" uid="uid://bkkj8n5qwowrw" path="res://scripts/dice.gd" id="2_e0qrn"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_75ctp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75ctp"]
+size = Vector2(24, 24)
+
+[node name="Dice" type="RigidBody2D" unique_id=373100524]
+physics_material_override = SubResource("PhysicsMaterial_75ctp")
+gravity_scale = 3.0
+script = ExtResource("2_e0qrn")
+multiply = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1473444441]
+scale = Vector2(0.6, 0.6)
+shape = SubResource("RectangleShape2D_75ctp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=812518641]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_xa3dw")
+region_enabled = true
+region_rect = Rect2(2, 2, 24, 24)
+
+[node name="VectorCreator" parent="." unique_id=1673855590 instance=ExtResource("1_jj6bm")]
+max_lenght = 50
+
+[connection signal="vector_creator" from="VectorCreator" to="." method="launch"]

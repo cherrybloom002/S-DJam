@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://cugw6hb5txr0l"]
 
 [ext_resource type="PackedScene" uid="uid://dlqfd0pjd333j" path="res://enemies/red_square/red_square.tscn" id="1_igr15"]
+[ext_resource type="PackedScene" uid="uid://h0bmbcil5sb6" path="res://scenes/player/dice.tscn" id="2_pw2kr"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pw2kr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f0ot8"]
 size = Vector2(82.005875, 120)
@@ -9,6 +12,14 @@ size = Vector2(82.005875, 120)
 size = Vector2(60, 6)
 
 [node name="Stage" type="Node2D" unique_id=1377701709]
+
+[node name="Dice" parent="." unique_id=270210238 instance=ExtResource("2_pw2kr")]
+position = Vector2(209, 171)
+disable_mode = 2
+mass = 0.2
+physics_material_override = SubResource("PhysicsMaterial_pw2kr")
+inertia = 1.31
+can_sleep = false
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=1392233870]
 position = Vector2(210.99998, 233)
