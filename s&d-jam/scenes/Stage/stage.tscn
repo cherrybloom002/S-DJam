@@ -129,9 +129,9 @@ position = Vector2(65, -8)
 position = Vector2(210, 268)
 
 [node name="KillZone2" parent="KillZones" unique_id=1988032184 instance=ExtResource("7_i4j4p")]
-position = Vector2(-13, 132)
+position = Vector2(-38, 135)
 rotation = 1.5707964
 
 [node name="KillZone3" parent="KillZones" unique_id=935321982 instance=ExtResource("7_i4j4p")]
-position = Vector2(441, 125)
+position = Vector2(463, 125)
 rotation = -1.5707964

@@ -6,11 +6,11 @@ var enemy_death_effect = preload("res://enemies/enemy_death_effect.tscn")
 @export var SPEED : int = 1500
 @export var wait_time : float = 3
 
-#@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer: Timer = $Timer
 
-#@export var health_amount : int = 3
-#@export var damage_amount : int = 1
+@export var health_amount : int = 3
+@export var damage_amount : int = 1
 
 #const GRAVITY = 1000
 
@@ -93,9 +93,7 @@ func _on_timer_timeout() -> void:
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body.name == "Dice":
-		print("Hurtbox area entered")
 		var enemy_death_effect_instance = enemy_death_effect.instantiate() as Node2D
 		enemy_death_effect_instance.global_position = global_position
-		
 		get_parent().add_child(enemy_death_effect_instance)
 		queue_free()
