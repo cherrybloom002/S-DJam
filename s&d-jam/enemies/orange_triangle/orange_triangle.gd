@@ -6,13 +6,13 @@ var enemy_death_effect = preload("res://enemies/enemy_death_effect.tscn")
 @export var SPEED : int = 1500
 @export var wait_time : float = 3
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+#@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer: Timer = $Timer
 
 @export var health_amount : int = 3
 @export var damage_amount : int = 1
 
-const GRAVITY = 1000
+#const GRAVITY = 1000
 
 enum State {Idle, Walk}
 
@@ -40,16 +40,16 @@ func _ready():
 	current_state = State.Idle
 
 func _physics_process(delta : float) -> void:
-	enemy_gravity(delta)
+#	enemy_gravity(delta)
 	enemy_idle(delta)
 	enemy_walk(delta)
 	
 	move_and_slide()
 	
-	enemy_animations()
+#	enemy_animations()
 
-func enemy_gravity(delta : float):
-	velocity.y += GRAVITY * delta
+#func enemy_gravity(delta : float):
+#	velocity.y += GRAVITY * delta
 
 func enemy_idle(delta : float):
 	if !can_walk:
@@ -79,17 +79,16 @@ func enemy_walk(delta : float):
 		can_walk = false
 		timer.start()
 
-	
+#	animated_sprite_2d.flip_h = direction.x < 0
 
-func enemy_animations():
-	if current_state == State.Idle && !can_walk:
-		animated_sprite_2d.play("idle")
-	elif current_state == State.Walk && can_walk:
-		animated_sprite_2d.play("walk")
+#func enemy_animations():
+#	if current_state == State.Idle && !can_walk:
+#		animated_sprite_2d.play("idle")
+#	elif current_state == State.Walk && can_walk:
+#		animated_sprite_2d.play("walk")
 
 func _on_timer_timeout() -> void:
 	can_walk = true
-	animated_sprite_2d.flip_h = direction.x < 0
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	print("Hurtbox area entered")
