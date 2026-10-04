@@ -63,13 +63,17 @@ func spawn_enemy(enemy_scene: PackedScene, marker_list: Array) -> void:
 	if enemy_scene == null or marker_list.is_empty():
 		return
 		
-	var spawn_point: Marker2D = marker_list.pick_random()
+	var spawn_point: Marker2D = marker_list.pick_random() as Marker2D
 	var enemy = enemy_scene.instantiate()
 	enemy.global_position = spawn_point.global_position
 	
-	# Connect tree_exited to keep track of remaining enemies
+	# Check if the spawn marker has a child named "PatrolPoints"
+	if spawn_point.has_node("PatrolPoints"):
+		enemy.patrol_points = spawn_point.get_node("PatrolPoints")
+	
 	enemy.tree_exited.connect(_on_enemy_destroyed)
 	
+	# add_child fires enemy._ready(), so patrol_points must be set before this step
 	get_parent().add_child(enemy)
 	active_enemies += 1
 

@@ -63,12 +63,6 @@ limit_top = -25
 limit_right = 480
 limit_bottom = 270
 
-[node name="RedSquare" parent="." unique_id=1719181859 instance=ExtResource("1_igr15")]
-position = Vector2(136, 128)
-
-[node name="OrangeTriangle" parent="." unique_id=78745406 instance=ExtResource("5_dhkk0")]
-position = Vector2(323, 70)
-
 [node name="EnemySpawner" type="Node2D" parent="." unique_id=669844065]
 script = ExtResource("6_ykg7u")
 ground_enemy_scene = ExtResource("1_igr15")
@@ -80,8 +74,25 @@ position = Vector2(87, 57)
 [node name="Ground1" type="Marker2D" parent="EnemySpawner/GroundSpawnPoints" unique_id=967938989]
 position = Vector2(43, 67)
 
+[node name="PatrolPoints" type="Node2D" parent="EnemySpawner/GroundSpawnPoints/Ground1" unique_id=2019265917]
+position = Vector2(0, -3)
+
+[node name="Point1" type="Marker2D" parent="EnemySpawner/GroundSpawnPoints/Ground1/PatrolPoints" unique_id=1312982925]
+position = Vector2(-28, 11)
+
+[node name="Point2" type="Marker2D" parent="EnemySpawner/GroundSpawnPoints/Ground1/PatrolPoints" unique_id=1708565104]
+position = Vector2(41, 11)
+
 [node name="Ground2" type="Marker2D" parent="EnemySpawner/GroundSpawnPoints" unique_id=978010395]
 position = Vector2(210, 61)
+
+[node name="PatrolPoints" type="Node2D" parent="EnemySpawner/GroundSpawnPoints/Ground2" unique_id=1269488221]
+
+[node name="Point1" type="Marker2D" parent="EnemySpawner/GroundSpawnPoints/Ground2/PatrolPoints" unique_id=1795432271]
+position = Vector2(-36, 14)
+
+[node name="Point2" type="Marker2D" parent="EnemySpawner/GroundSpawnPoints/Ground2/PatrolPoints" unique_id=1663614632]
+position = Vector2(33, 14)
 
 [node name="AirSpawnPoints" type="Node2D" parent="EnemySpawner" unique_id=1617268913]
 position = Vector2(212, 58)
@@ -89,7 +100,23 @@ position = Vector2(212, 58)
 [node name="Air1" type="Marker2D" parent="EnemySpawner/AirSpawnPoints" unique_id=493762428]
 position = Vector2(-70, 5)
 
+[node name="PatrolPoints" type="Node2D" parent="EnemySpawner/AirSpawnPoints/Air1" unique_id=97862917]
+
+[node name="Point1" type="Marker2D" parent="EnemySpawner/AirSpawnPoints/Air1/PatrolPoints" unique_id=1049272193]
+position = Vector2(-54, 0)
+
+[node name="Point2" type="Marker2D" parent="EnemySpawner/AirSpawnPoints/Air1/PatrolPoints" unique_id=1049391096]
+position = Vector2(50, 0)
+
 [node name="Air2" type="Marker2D" parent="EnemySpawner/AirSpawnPoints" unique_id=1399095334]
 position = Vector2(86, 17)
+
+[node name="PatrolPoints" type="Node2D" parent="EnemySpawner/AirSpawnPoints/Air2" unique_id=141153649]
+
+[node name="Point1" type="Marker2D" parent="EnemySpawner/AirSpawnPoints/Air2/PatrolPoints" unique_id=544670794]
+position = Vector2(-53, -11)
+
+[node name="Point2" type="Marker2D" parent="EnemySpawner/AirSpawnPoints/Air2/PatrolPoints" unique_id=363404550]
+position = Vector2(65, -8)
 
 [node name="SpawnTimer" type="Timer" parent="EnemySpawner" unique_id=1280231867]

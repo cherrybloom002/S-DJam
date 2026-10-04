@@ -100,7 +100,7 @@ scale = Vector2(0.4, 0.4)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_d7noc")
-patrol_points = NodePath("PatrolPoints")
+patrol_points = NodePath("")
 wait_time = 0.5
 health_amount = 1
 
@@ -128,14 +128,6 @@ position = Vector2(0, -17.5)
 scale = Vector2(0.99999946, 0.99999946)
 shape = SubResource("RectangleShape2D_d7noc")
 debug_color = Color(0.910061, 0.27724776, 0.29055625, 0.41960785)
-
-[node name="PatrolPoints" type="Node2D" parent="." unique_id=273835644]
-
-[node name="Point1" type="Marker2D" parent="PatrolPoints" unique_id=1860579622]
-position = Vector2(-60, 17)
-
-[node name="Point2" type="Marker2D" parent="PatrolPoints" unique_id=964667265]
-position = Vector2(60, 17)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
