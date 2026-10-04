@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cllilexm7cfui" path="res://assets/sprites/brackeys_platformer_assets/sprites/platforms.png" id="1_sk0qv"]
 [ext_resource type="PackedScene" uid="uid://dueqmoweb4a63" path="res://scenes/background/background.tscn" id="1_xa1g8"]
 [ext_resource type="PackedScene" uid="uid://h0bmbcil5sb6" path="res://scenes/player/dice.tscn" id="2_pw2kr"]
+[ext_resource type="PackedScene" uid="uid://dsmx7rg3euddi" path="res://enemies/orange_triangle/orange_triangle.tscn" id="5_dhkk0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sk0qv"]
 texture = ExtResource("1_sk0qv")
@@ -72,3 +73,15 @@ position = Vector2(-60, 17)
 
 [node name="Point2" type="Marker2D" parent="RedSquare/PatrolPoints" unique_id=1224287906]
 position = Vector2(60, 17)
+
+[node name="OrangeTriangle" parent="." unique_id=78745406 node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_dhkk0")]
+position = Vector2(323, 70)
+patrol_points = NodePath("PatrolPoints2")
+
+[node name="PatrolPoints2" type="Node2D" parent="OrangeTriangle" unique_id=1876225506]
+
+[node name="Point1" type="Marker2D" parent="OrangeTriangle/PatrolPoints2" unique_id=1724954533]
+position = Vector2(-120, 0)
+
+[node name="Point2" type="Marker2D" parent="OrangeTriangle/PatrolPoints2" unique_id=1178093754]
+position = Vector2(120, 0)

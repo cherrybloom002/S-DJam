@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dsmx7rg3euddi"]
+
+[ext_resource type="Script" uid="uid://cvsk6y7dvcbjk" path="res://enemies/orange_triangle/orange_triangle.gd" id="1_iwtfw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5glc"]
+size = Vector2(30.8, 34.9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d7noc"]
+size = Vector2(30.8, 34.9)
+
+[node name="OrangeTriangle" type="CharacterBody2D" unique_id=1719181859]
+scale = Vector2(0.4, 0.4)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_iwtfw")
+wait_time = 0.8
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=850286086]
+scale = Vector2(0.99999994, 0.99999994)
+color = Color(0.8634066, 0.4310084, 0.15026352, 1)
+polygon = PackedVector2Array(-14.999998, -34.999996, 14.999998, -34.999996, 0, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1732936615]
+position = Vector2(-2.9802322e-08, -17.5)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_n5glc")
+
+[node name="Timer" type="Timer" parent="." unique_id=1012172875]
+autostart = true
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=302106176]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1235110927]
+position = Vector2(0, -17.5)
+scale = Vector2(0.99999946, 0.99999946)
+shape = SubResource("RectangleShape2D_d7noc")
+debug_color = Color(0.910061, 0.27724776, 0.29055625, 0.41960785)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
