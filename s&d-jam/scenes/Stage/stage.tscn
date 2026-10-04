@@ -123,13 +123,15 @@ position = Vector2(65, -8)
 
 [node name="SpawnTimer" type="Timer" parent="EnemySpawner" unique_id=1280231867]
 
-[node name="KillZone" parent="." unique_id=2076435800 instance=ExtResource("7_i4j4p")]
+[node name="KillZones" type="Node" parent="." unique_id=1820427046]
+
+[node name="KillZone1" parent="KillZones" unique_id=2076435800 instance=ExtResource("7_i4j4p")]
 position = Vector2(210, 268)
 
-[node name="KillZone2" parent="." unique_id=1988032184 instance=ExtResource("7_i4j4p")]
+[node name="KillZone2" parent="KillZones" unique_id=1988032184 instance=ExtResource("7_i4j4p")]
 position = Vector2(-13, 132)
 rotation = 1.5707964
 
-[node name="KillZone3" parent="." unique_id=935321982 instance=ExtResource("7_i4j4p")]
+[node name="KillZone3" parent="KillZones" unique_id=935321982 instance=ExtResource("7_i4j4p")]
 position = Vector2(441, 125)
 rotation = -1.5707964
