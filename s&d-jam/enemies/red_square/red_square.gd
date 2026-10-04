@@ -79,7 +79,7 @@ func enemy_walk(delta : float):
 		can_walk = false
 		timer.start()
 
-	animated_sprite_2d.flip_h = direction.x < 0
+	
 
 func enemy_animations():
 	if current_state == State.Idle && !can_walk:
@@ -89,6 +89,7 @@ func enemy_animations():
 
 func _on_timer_timeout() -> void:
 	can_walk = true
+	animated_sprite_2d.flip_h = direction.x < 0
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	print("Hurtbox area entered")
