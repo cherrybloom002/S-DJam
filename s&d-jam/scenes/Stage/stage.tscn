@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://h0bmbcil5sb6" path="res://scenes/player/dice.tscn" id="2_pw2kr"]
 [ext_resource type="PackedScene" uid="uid://dsmx7rg3euddi" path="res://enemies/orange_triangle/orange_triangle.tscn" id="5_dhkk0"]
 [ext_resource type="Script" uid="uid://c3uovidrkpuha" path="res://scenes/Stage/enemy_spawner.gd" id="6_ykg7u"]
+[ext_resource type="PackedScene" uid="uid://4q2s6vqctiu8" path="res://scenes/kill_zone.tscn" id="7_i4j4p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sk0qv"]
 texture = ExtResource("1_sk0qv")
@@ -62,6 +63,7 @@ limit_left = -50
 limit_top = -25
 limit_right = 480
 limit_bottom = 270
+limit_smoothed = true
 
 [node name="EnemySpawner" type="Node2D" parent="." unique_id=669844065]
 script = ExtResource("6_ykg7u")
@@ -120,3 +122,6 @@ position = Vector2(-53, -11)
 position = Vector2(65, -8)
 
 [node name="SpawnTimer" type="Timer" parent="EnemySpawner" unique_id=1280231867]
+
+[node name="KillZone" parent="." unique_id=2076435800 instance=ExtResource("7_i4j4p")]
+position = Vector2(210, 268)
