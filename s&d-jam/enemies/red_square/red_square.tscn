@@ -90,10 +90,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5glc"]
-size = Vector2(30.8, 17.500011)
+size = Vector2(30.8, 25.000017)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d7noc"]
-size = Vector2(25.000029, 15.000008)
+size = Vector2(25.000029, 7.4999943)
 
 [node name="RedSquare" type="CharacterBody2D" unique_id=1719181859]
 scale = Vector2(0.4, 0.4)
@@ -107,12 +107,12 @@ position = Vector2(0, -4.5)
 scale = Vector2(2.2, 2.2)
 sprite_frames = SubResource("SpriteFrames_ugxof")
 animation = &"idle"
-frame_progress = 0.38144416
+frame_progress = 0.16840856
 offset = Vector2(0, -10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1732936615]
-position = Vector2(0, -8.749999)
-scale = Vector2(0.99999934, 0.99999934)
+position = Vector2(0, -12.499998)
+scale = Vector2(0.9999992, 0.9999992)
 shape = SubResource("RectangleShape2D_n5glc")
 
 [node name="Timer" type="Timer" parent="." unique_id=1012172875]
@@ -123,8 +123,8 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1235110927]
-position = Vector2(2.9802305e-07, -24.99999)
-scale = Vector2(0.99999857, 0.99999857)
+position = Vector2(2.98023e-07, -28.749989)
+scale = Vector2(0.9999985, 0.9999985)
 shape = SubResource("RectangleShape2D_d7noc")
 debug_color = Color(0.910061, 0.27724776, 0.29055625, 0.41960785)
 
