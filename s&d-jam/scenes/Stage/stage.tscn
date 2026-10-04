@@ -62,7 +62,7 @@ limit_right = 480
 limit_bottom = 270
 
 [node name="RedSquare" parent="." unique_id=1719181859 node_paths=PackedStringArray("patrol_points") instance=ExtResource("1_igr15")]
-position = Vector2(136, 127)
+position = Vector2(136, 128)
 patrol_points = NodePath("PatrolPoints")
 
 [node name="PatrolPoints" type="Node2D" parent="RedSquare" unique_id=1074799504]

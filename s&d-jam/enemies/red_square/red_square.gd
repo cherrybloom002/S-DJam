@@ -4,8 +4,9 @@ var enemy_death_effect = preload("res://enemies/enemy_death_effect.tscn")
 
 @export var patrol_points : Node
 @export var SPEED : int = 1500
-@export var wait_time : float = 2
+@export var wait_time : float = 3
 
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer: Timer = $Timer
 
 @export var health_amount : int = 3
@@ -44,6 +45,8 @@ func _physics_process(delta : float) -> void:
 	enemy_walk(delta)
 	
 	move_and_slide()
+	
+	enemy_animations()
 
 func enemy_gravity(delta : float):
 	velocity.y += GRAVITY * delta
@@ -75,6 +78,14 @@ func enemy_walk(delta : float):
 
 		can_walk = false
 		timer.start()
+
+	animated_sprite_2d.flip_h = direction.x < 0
+
+func enemy_animations():
+	if current_state == State.Idle && !can_walk:
+		animated_sprite_2d.play("idle")
+	elif current_state == State.Walk && can_walk:
+		animated_sprite_2d.play("walk")
 
 func _on_timer_timeout() -> void:
 	can_walk = true

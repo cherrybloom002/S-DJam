@@ -1,25 +1,116 @@
 [gd_scene format=3 uid="uid://dlqfd0pjd333j"]
 
 [ext_resource type="Script" uid="uid://crg3w5ii80qa7" path="res://enemies/red_square/red_square.gd" id="1_d7noc"]
+[ext_resource type="Texture2D" uid="uid://c0akvbxgf0ior" path="res://assets/sprites/brackeys_platformer_assets/sprites/slime_purple.png" id="2_few1a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uttno"]
+atlas = ExtResource("2_few1a")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_di16s"]
+atlas = ExtResource("2_few1a")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fqln"]
+atlas = ExtResource("2_few1a")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8w25"]
+atlas = ExtResource("2_few1a")
+region = Rect2(72, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fixlt"]
+atlas = ExtResource("2_few1a")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_122wt"]
+atlas = ExtResource("2_few1a")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sfd5"]
+atlas = ExtResource("2_few1a")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbd8t"]
+atlas = ExtResource("2_few1a")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ugxof"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uttno")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_di16s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fqln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8w25")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fixlt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_122wt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5sfd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbd8t")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fixlt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_122wt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5sfd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbd8t")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5glc"]
+size = Vector2(30.8, 34.9)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d7noc"]
-size = Vector2(23, 23)
+size = Vector2(30.8, 34.9)
 
 [node name="RedSquare" type="CharacterBody2D" unique_id=1719181859]
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_d7noc")
 wait_time = 0.5
 
-[node name="Sprite2D" type="Polygon2D" parent="." unique_id=676049059]
-color = Color(0.6501247, 0.08795845, 0.025893526, 1)
-polygon = PackedVector2Array(-10, -20, -10, 0, 10, 0, 10, -20)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1416109630]
+position = Vector2(0, -4.5)
+scale = Vector2(2.2, 2.2)
+sprite_frames = SubResource("SpriteFrames_ugxof")
+animation = &"idle"
+offset = Vector2(0, -10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1732936615]
-position = Vector2(0, -10)
+position = Vector2(-2.9802322e-08, -17.5)
+scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_n5glc")
-debug_color = Color(0.82821393, 0.15725026, 0.21445298, 0.41960785)
 
 [node name="Timer" type="Timer" parent="." unique_id=1012172875]
 autostart = true
@@ -29,8 +120,10 @@ collision_layer = 4
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1235110927]
-position = Vector2(0, -10)
+position = Vector2(0, -17.5)
+scale = Vector2(0.99999946, 0.99999946)
 shape = SubResource("RectangleShape2D_d7noc")
+debug_color = Color(0.910061, 0.27724776, 0.29055625, 0.41960785)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
