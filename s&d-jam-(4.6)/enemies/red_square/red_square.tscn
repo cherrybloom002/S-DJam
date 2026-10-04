@@ -50,7 +50,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j8w25")
 }],
-"loop": 1,
+"loop": true,
 "name": &"damage",
 "speed": 5.0
 }, {
@@ -67,7 +67,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mbd8t")
 }],
-"loop": 1,
+"loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -84,7 +84,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mbd8t")
 }],
-"loop": 1,
+"loop": true,
 "name": &"walk",
 "speed": 5.0
 }]
@@ -95,14 +95,12 @@ size = Vector2(30.8, 34.9)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d7noc"]
 size = Vector2(30.8, 34.9)
 
-[node name="RedSquare" type="CharacterBody2D" unique_id=1719181859 node_paths=PackedStringArray("patrol_points")]
+[node name="RedSquare" type="CharacterBody2D" unique_id=1719181859]
 scale = Vector2(0.4, 0.4)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_d7noc")
-patrol_points = NodePath("PatrolPoints")
 wait_time = 0.5
-health_amount = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1416109630]
 position = Vector2(0, -4.5)
@@ -128,14 +126,6 @@ position = Vector2(0, -17.5)
 scale = Vector2(0.99999946, 0.99999946)
 shape = SubResource("RectangleShape2D_d7noc")
 debug_color = Color(0.910061, 0.27724776, 0.29055625, 0.41960785)
-
-[node name="PatrolPoints" type="Node2D" parent="." unique_id=273835644]
-
-[node name="Point1" type="Marker2D" parent="PatrolPoints" unique_id=1860579622]
-position = Vector2(-60, 17)
-
-[node name="Point2" type="Marker2D" parent="PatrolPoints" unique_id=964667265]
-position = Vector2(60, 17)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

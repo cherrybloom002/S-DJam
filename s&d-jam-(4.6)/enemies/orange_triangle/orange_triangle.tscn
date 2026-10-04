@@ -8,14 +8,12 @@ size = Vector2(30.8, 34.9)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d7noc"]
 size = Vector2(30.8, 34.9)
 
-[node name="OrangeTriangle" type="CharacterBody2D" unique_id=1719181859 node_paths=PackedStringArray("patrol_points")]
+[node name="OrangeTriangle" type="CharacterBody2D" unique_id=1719181859]
 scale = Vector2(0.4, 0.4)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_iwtfw")
-patrol_points = NodePath("PatrolPoints2")
 wait_time = 0.8
-health_amount = 1
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=850286086]
 scale = Vector2(0.99999994, 0.99999994)
@@ -39,14 +37,6 @@ position = Vector2(0, -17.5)
 scale = Vector2(0.99999946, 0.99999946)
 shape = SubResource("RectangleShape2D_d7noc")
 debug_color = Color(0.910061, 0.27724776, 0.29055625, 0.41960785)
-
-[node name="PatrolPoints2" type="Node2D" parent="." unique_id=1756641590]
-
-[node name="Point1" type="Marker2D" parent="PatrolPoints2" unique_id=2144597950]
-position = Vector2(-120, 0)
-
-[node name="Point2" type="Marker2D" parent="PatrolPoints2" unique_id=1133538581]
-position = Vector2(120, 0)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
